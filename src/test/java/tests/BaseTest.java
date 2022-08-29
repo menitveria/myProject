@@ -12,6 +12,7 @@ import pageObjects.LoginPage;
 public class BaseTest {
 	WebDriver driver;
 //hghg//
+//ff/
 //kj/
 	@BeforeClass
 	public void setup() {
