@@ -11,7 +11,7 @@ import pageObjects.LoginPage;
 
 public class BaseTest {
 	WebDriver driver;
-
+//hghg//
 	@BeforeClass
 	public void setup() {
 		WebDriverManager.chromedriver().setup();
