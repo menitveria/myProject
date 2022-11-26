@@ -11,9 +11,7 @@ import pageObjects.LoginPage;
 
 public class BaseTest {
 	WebDriver driver;
-//hghg//
-//ff/
-//kj/
+
 	@BeforeClass
 	public void setup() {
 		WebDriverManager.chromedriver().setup();
@@ -33,15 +31,15 @@ public class BaseTest {
 	@BeforeClass
 	public void setupLogin() {
 		LoginPage lp = new LoginPage(driver);
-
-		lp.clickOnSignin();
+		lp.clickOnSignin();	
 		lp.loginPageMain("yairtveria@gmail.com", "Aa258963");
-
+		lp.popUp();
+		lp.clickLetsGo();		
 	}
 
 	@AfterClass
 	public void tearDown() {
-		//driver.quit();
+		driver.quit();
 	}
 
 }
