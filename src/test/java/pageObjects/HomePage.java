@@ -66,9 +66,6 @@ public class HomePage extends NavigationPage {
 	@FindBy(css = "  div.dates-form__picker > div.search-dates-menu > div.search-dates-menu__controls > button")
 	private WebElement FlexibleDatesBtn;
 
-	@FindBy(css = "div.hide-xs.show-md > div > button")
-	private WebElement planAtripBtn;
-
 	@FindBy(css = "toaster__title")
 	private WebElement successMsg;
 
@@ -78,7 +75,7 @@ public class HomePage extends NavigationPage {
 	@FindBy(css = ".flatpickr-current-month > span")
 	private List<WebElement> month;
 
-	@FindBy(css = ".flatpickr-next-month")
+	@FindBy(css = "span.flatpickr-next-month")
 	private WebElement clickNextMonthBtn;
 
 	@FindBy(css = ".Toastify>div>div>div.Toastify__toast-body")
@@ -105,12 +102,6 @@ public class HomePage extends NavigationPage {
 
 	@FindBy(css = "   div.purpose-form__body > div > ul > li:nth-child(4) > button")
 	private WebElement catgoryNaturalGreenBtn;
-
-	@FindBy(css = "  div.purpose-form__body > div > div > ul > li:nth-child(1) > button > span")
-	private WebElement subCatgoryNaturalGreen;
-
-	@FindBy(css = " .hero-special>div.hero-special__button>.btn-blue.btn")
-	private WebElement searchBtn;
 
 	@FindBy(css = "form > div:nth-child(3) > div > div:nth-child(1) > div > div")
 	private WebElement suggestionDatesFiled;
@@ -179,19 +170,6 @@ public class HomePage extends NavigationPage {
 		waiting(1000);
 	}
 
-	// click on plan a trip
-	public void clicPlanaTrip() {
-		click(nextStepBtn);
-		waiting(1000);
-	}
-
-	// method for eror msg when you dont ckick on dates
-	public void methodForErorMsg() {
-		js.executeScript("window.scrollBy(0, 200)");
-		waiting(1000);
-		click(planAtripBtn);
-	}
-
 	// get msg eror when you dont ckick on dates
 	public String getMsgEror() {
 		waiting(1500);
@@ -230,21 +208,20 @@ public class HomePage extends NavigationPage {
 	}
 
 	// choose month to go (Destination Suggestion plan)
-	public void chooseDestinationSuggestionMonth(String monthName) {
-		click(suggestionDatesFiled);
-		js.executeScript("window.scrollBy(0, 100)");
-		waiting(1000);
-		for (WebElement el : month) {
-			String monthTitle = el.getText();
-			while (!(monthTitle.equalsIgnoreCase(monthName))) {
-				click(clickNextMonthBtn);
-				break;
-			}
-		}
-	}
+	// public void chooseDestinationSuggestionMonth(String monthName) {
+	// click(suggestionDatesFiled);
+	// js.executeScript("window.scrollBy(0, 100)");
+	// waiting(1000);
+	// for (WebElement el : month) {
+	// String monthTitle = el.getText();
+	// while (!(monthTitle.equalsIgnoreCase(monthName))) {
+	// click(clickNextMonthBtn);
+	// break;
+	// }
+	// }
+	// }
 
 	public void chooseFlexibleDates() {
-
 		// js.executeScript("window.scrollBy(0, 200)");
 		waiting(2000);
 		click(FlexibleDatesBtn);
@@ -270,36 +247,18 @@ public class HomePage extends NavigationPage {
 		return act;
 	}
 
-	// public void saveTrip() {
-	// waitForVisibilityOf(saveTripBtn);
-	// click(saveTripBtn);
-	// waitForVisibilityOf(successMsg);
+	// public void choosePurpose(String name) {
+	// click(purposeBtn);
+	// js.executeScript("window.scrollBy(0, 150)");
+	// List<WebElement> purposeList =
+	// driver.findElements(By.cssSelector("button.search-purpose__item"));
+	// for (WebElement el : purposeList) {
+	// if (el.getText().equalsIgnoreCase(name)) {
+	// click(el);
+
 	// }
-
-	// destinationSuggestion
-
-	// click on destinationSuggestion
-
-	public void clickdestinationSuggestion() {
-		click(destinationSuggestionBtn);
-
-	}
-
-	public void clickOnSearch() {
-		click(searchBtn);
-	}
-
-	public void choosePurpose(String name) {
-		click(purposeBtn);
-		js.executeScript("window.scrollBy(0, 150)");
-		List<WebElement> purposeList = driver.findElements(By.cssSelector("button.search-purpose__item"));
-		for (WebElement el : purposeList) {
-			if (el.getText().equalsIgnoreCase(name)) {
-				click(el);
-
-			}
-		}
-	}
+	// }
+	// }
 
 	public void chooseCatgoryNatural(String name) {
 		waiting(1000);
@@ -308,17 +267,7 @@ public class HomePage extends NavigationPage {
 		js.executeScript("window.scrollBy(-150, 100)");
 	}
 
-	public void chooseSubCatgoryNatural(String name) {
-		mouseToWebElement(subCatgoryNaturalGreen);
-		click(subCatgoryNaturalGreen);
-		js.executeScript("window.scrollBy(-150, 100)");
-
-	}
-
 	public void clickOnsScreenBlock() {
-		// Actions a = new Actions(driver);
-		// a.moveToElement(driver.findElement(By.cssSelector(".react-joyride__tooltip"))).moveByOffset(0,
-		// 100).click().build().perform();
 		mouseMove(screenBlock);
 		waiting(2000);
 	}

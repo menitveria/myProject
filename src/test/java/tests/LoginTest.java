@@ -1,4 +1,4 @@
-  
+
 package tests;
 
 import static org.testng.Assert.assertEquals;
@@ -19,19 +19,12 @@ public class LoginTest extends BaseTest {
 	public void tc01_login() {
 
 		LoginPage lp = new LoginPage(driver);
-
 		lp.clickOnSignin();
-
-		// String Email = Utils.readValue("Email");
-		// driver.get(Email);
-
 		lp.loginPageMain("yairtveria@gmail.com", "Aa258963");
-		lp.waiting(1000);
-
+		lp.waiting(4000);
+		lp.popUp();
+		lp.clickLetsGo();
 		Assert.assertEquals(lp.getLoginName(), "Hi, yair");
-
 	}
-	
-
 
 }

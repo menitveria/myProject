@@ -27,40 +27,34 @@ public class NavigationTest extends BaseTest {
 		Assert.assertEquals(actual, "Start adding routes to bookmarks now!");
 	}
 
-	@Test
-	public void tc03_openCovidAssist() {
-		NavigationPage np = new NavigationPage(driver);
-		np.clickOncovid();
-		String actual = np.getMsginPagecovid();
-		Assert.assertEquals(actual, "àì úúğå ì÷åøåğä ìùáù ìëí àú äèéåì");
-		np.waiting(2000);
-		np.moveToMainWindow();
-	}
+	
+
 
 	@Test
-	public void tc04_openHotelPage() {
+	public void tc03_openHotelPage() {
 		NavigationPage np = new NavigationPage(driver);
+		np.clickOnService();
 		np.servicesHotels();
 		String actual = np.getMsgBooking();
-		Assert.assertEquals(actual, "áùéúåó ôòåìä òí:");
+		Assert.assertEquals(actual, "×—×•×¡×›×™× 15% ×¢× ××‘×¦×¢×™ ×¡×•×£ ×©× ×”");
 		np.waiting(2000);
 		np.moveToMainWindow();
 	}
 
 	@Test
-	public void tc05_openFlightPage() {
+	public void tc04_openFlightPage() {
 		NavigationPage np = new NavigationPage(driver);
 		np.openflightPage();
 		np.closeMsgJump();
 		String actual = np.getMsgPageflight();
-		Assert.assertEquals(actual, "We hack the system." + "\n" + "You fly for less.");
+		Assert.assertEquals(actual, "Book cheap flights other search tools can't find");
 		np.waiting(2000);
 		np.moveToMainWindow();
 
 	}
 
 	@Test
-	public void tc06_ExperiencePage() {
+	public void tc05_ExperiencePage() {
 		NavigationPage np = new NavigationPage(driver);
 		np.openExperiencePage();
 		String actual = np.getMsgPageExperience();
@@ -71,19 +65,19 @@ public class NavigationTest extends BaseTest {
 	}
 
 	@Test
-	public void tc07_insurancePage() {
+	public void tc06_insurancePage() {
 		NavigationPage np = new NavigationPage(driver);
 		np.openInsurancePage();
 		np.waiting(4000);
 		String actual = np.getMsgInsurancePage();
-		Assert.assertEquals(actual, "îúé?");
+		Assert.assertEquals(actual, "××ª×™?");
 		np.waiting(5000);
 		np.moveToMainWindow();
 
 	}
 
 	@Test
-	public void tc08_carPage() {
+	public void tc07_carPage() {
 		NavigationPage np = new NavigationPage(driver);
 		np.openCarPage();
 		String actual = np.getMsgPageCar();

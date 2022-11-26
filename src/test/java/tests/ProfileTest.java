@@ -17,10 +17,7 @@ public class ProfileTest extends BaseTest {
 		pp.chooseFinancialstandard();
 		String act = pp.getMsginProfilePage();
 		assertEquals(act, "Use my preferences and interests for search");
-		
 
 	}
-	
-
 
 }

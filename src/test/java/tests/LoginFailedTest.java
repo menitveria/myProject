@@ -20,15 +20,15 @@ public class LoginFailedTest extends BaseTest {
 	public void tc01_login(String email, String password) {
 		LoginPage lp = new LoginPage(driver);
 		lp.loginPageMain(email, password);
+		lp.popUp();
 		String actual = lp.geterrorMsg();
 		Assert.assertEquals(actual, "Unable to log in with provided credentials.");
 	}
 
 	@DataProvider
 	public Object[][] getData() {
-		Object[][] data = { 
-				{ "mm@gmail.com", "Sa123456" },
-				
+		Object[][] data = { { "mm@gmail.com", "Sa123456" },
+
 		};
 		return data;
 	}

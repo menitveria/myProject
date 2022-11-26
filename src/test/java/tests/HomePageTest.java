@@ -16,7 +16,7 @@ public class HomePageTest extends BaseTest {
 		hp.waiting(1000);
 		hp.clickOnStartPlaningSecondBtn();
 		String act = hp.getMsgPagePlanTrip();
-		assertEquals(act, "It’s smart and simple");
+		assertEquals(act,"Smart and simple");
 	}
 
 	@Test
@@ -51,16 +51,15 @@ public class HomePageTest extends BaseTest {
 	public void tc04_chooseDate() {
 		HomePage hp = new HomePage(driver);
 		hp.waiting(2000);
-		hp.chooseMonth("September");
-		hp.chooseDates("September", "2022", "10", "September", "2022", "18");
+		hp.chooseMonth("November");
+		hp.chooseDates("December", "2022", "18", "December", "2022", "25");
 		hp.clicNextStep();
 		hp.chooseCatgoryNatural("Nature");
-		//hp.chooseSubCatgoryNatural("Green (mountains & forests)");
 		hp.clicNextStep2();
 		hp.chooseWhatDoYouPrefer();
 		hp.clickShowResult();
 		String act = hp.getMsgSearchResult();
-		assertEquals(act, "Search results");
+		assertEquals(act, "Your suggestions");
 
 	}
 

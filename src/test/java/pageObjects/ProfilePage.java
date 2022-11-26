@@ -13,7 +13,7 @@ public class ProfilePage extends NavigationPage {
 	@FindBy(css = " div.nav-right__user > div > div > div > a")
 	private WebElement profilefield;
 
-	@FindBy(css = " div:nth-child(3) > div.profile-section__header > div > button > svg")
+	@FindBy(css = " div:nth-child(3) > div.profile-section__header > div > button")
 	private WebElement editPrefenceFiled;
 
 	@FindBy(css = " #purpose > div > div.m-select__indicators.css-l5shxb")
@@ -44,8 +44,8 @@ public class ProfilePage extends NavigationPage {
 		waiting(1000);
 		mouseToWebElement(nameFiled);
 		click(profilefield);
-		waiting(1000);
-		js.executeScript("window.scrollBy(0, 150)");
+		waiting(3000);
+		js.executeScript("window.scrollBy(0, 200)");
 
 	}
 

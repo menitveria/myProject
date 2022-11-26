@@ -24,36 +24,34 @@ public class NavigationPage extends BasePage {
 
 	@FindBy(css = " div.app-header__desktop > nav > div > a:nth-child(2)")
 	private WebElement myTripfield;
-	
+
 	@FindBy(css = " div.tabs > a:nth-child(2)")
 	private WebElement clickMyRoutesBtn;
 
 	@FindBy(css = " div:nth-child(2) > section > div > p")
 	private WebElement msginPageTripfield;
-	
-	//covid assist
-	
-	@FindBy(css = ".app-header__desktop >nav > div >a:nth-child(3)")
-	private WebElement covidassistfield;
-	
-	@FindBy(css = "#select-country-wrap > div.row.mb-3.justify-center > div > h1")
-	private WebElement pagecovidfield;
 
-	// service
+	// covid assist
 
-	@FindBy(css = "  div.app-header__desktop > nav > div > div > span > span")
+	//@FindBy(css = "#__next > header > div > div > div.app-header__desktop > nav > div > div > div.hide-xs.show-xl > div > div > a:nth-child(1)")
+	//private WebElement covidassistfield;
+
+	//@FindBy(css = "#select-country-wrap > div.row.mb-3.justify-center > div > h1")
+	//private WebElement pagecovidfield;
+
+	// service 
+
+	@FindBy(css = " div.app-header__desktop > nav > div > div")
 	private WebElement servicefield;
-
-	
 
 	// hotels
 
 	@FindBy(css = "div.app-header__desktop > nav > div > div > div.hide-xs.show-xl > div > div > a:nth-child(1) > span")
 	private WebElement hotelstfield;
 
-	@FindBy(css = "   div.aff--cobrand_header_wrapper.hide_this_for_print > span")
+	@FindBy(css = " [data-testid=\"herobanner-title1\"]")
 	private WebElement msginPagehotelfield;
-	
+
 	// flight
 
 	@FindBy(css = "div.app-header__desktop > nav > div > div > div.hide-xs.show-xl > div > div > a:nth-child(2)")
@@ -61,8 +59,8 @@ public class NavigationPage extends BasePage {
 
 	@FindBy(css = " div:nth-child(1) > div > h1")
 	private WebElement msginPageflightfield;
-	
-	@FindBy(css = " div.Stack__StyledStack-sc-oaff2v-0.jIQtzq > button > div > div")
+
+	@FindBy(css = " #cookies_accept")
 	private WebElement msgJumpfield;
 
 	// experience
@@ -118,35 +116,34 @@ public class NavigationPage extends BasePage {
 		waiting(3000);
 
 	}
-	
-	//validation to Trip page
+
+	// validation to Trip page
 
 	public String getMsginPageTrip() {
 		waiting(2500);
 		String msg = getText(msginPageTripfield);
 		return msg;
 	}
-	
+
 	public void clickOnMyRoutes() {
 		waiting(3000);
 		click(clickMyRoutesBtn);
 		waiting(3000);
 	}
 	// click on covid
-	
-	public void clickOncovid() {
-		click(covidassistfield);
-		waiting(1000);
-		moveToNewWindow();
-	}
-	
-	public String getMsginPagecovid() {
-		waiting(2500);
-		String msg = getText(pagecovidfield );
-		return msg;
-	}
-	
-	
+
+	//public void clickOncovid() {
+	//	click(covidassistfield);
+	//	waiting(4000);
+	//	moveToNewWindow();
+	//	waiting(4000);
+	//}
+
+	//public String getMsginPagecovid() {
+	//	waiting(2500);
+	//	String msg = getText(pagecovidfield);
+	//	return msg;
+	//}
 
 	// click on service
 
@@ -156,11 +153,10 @@ public class NavigationPage extends BasePage {
 		waiting(2000);
 	}
 
-
-
 	// open hotels page
 	public void servicesHotels() {
 		mouseToWebElement(servicefield);
+		mouseToWebElement(hotelstfield);
 		click(hotelstfield);
 		waiting(1000);
 		moveToNewWindow();
@@ -169,7 +165,7 @@ public class NavigationPage extends BasePage {
 	public String getMsgBooking() {
 		String msg = getText(msginPagehotelfield);
 		return msg;
-	
+
 	}
 
 	// Open flights page
@@ -179,6 +175,7 @@ public class NavigationPage extends BasePage {
 		waiting(1000);
 		moveToNewWindow();
 	}
+
 	public void closeMsgJump() {
 		waiting(1000);
 		click(msgJumpfield);
@@ -222,11 +219,11 @@ public class NavigationPage extends BasePage {
 
 	// open car page
 
-	public void openCarPage(){
+	public void openCarPage() {
 		mouseToWebElement(servicefield);
 		click(carfield);
 		waiting(2000);
-		moveToNewWindow();		
+		moveToNewWindow();
 	}
 
 	public String getMsgPageCar() {
@@ -238,7 +235,7 @@ public class NavigationPage extends BasePage {
 	public void backToMainPage() {
 		moveToMainWindow();
 	}
-	
+
 	public String getLoginName() {
 		WebElement el = driver.findElement(By.cssSelector("div.nav-right__user > div"));
 		return getText(el);

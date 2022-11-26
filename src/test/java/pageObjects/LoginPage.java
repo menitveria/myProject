@@ -13,6 +13,9 @@ public class LoginPage extends NavigationPage {
 	@FindBy(css = ".nav-right__user button")
 	private WebElement signinField;
 
+	@FindBy(css = "#__next > div.hanukkah-popup > div > a > span")
+	private WebElement letsgoField;
+
 	@FindBy(css = "#email")
 	private WebElement emailfield;
 
@@ -25,8 +28,8 @@ public class LoginPage extends NavigationPage {
 	@FindBy(css = "form > div.form-error")
 	private WebElement erormsgfield;
 
-
-	
+	@FindBy(css = "[aria-label=\"Survey\"]>div>button")
+	private WebElement popupfield;
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -37,11 +40,18 @@ public class LoginPage extends NavigationPage {
 		click(signinField);
 	}
 
+	public void clickLetsGo() {
+		click(letsgoField);
+		waiting(4000);
+		driver.navigate().back();
+	}
+
 	public void loginPageMain(String email, String password) {
 		fillText(emailfield, email);
 		fillText(passwordfield, password);
+		waiting(1500);
 		click(loginButtfield);
-		
+
 	}
 
 	public String geterrorMsg() {
@@ -51,5 +61,8 @@ public class LoginPage extends NavigationPage {
 
 	}
 
-	
+	public void popUp() {
+		click(popupfield);
+	}
+
 }
