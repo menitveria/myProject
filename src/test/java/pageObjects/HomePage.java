@@ -222,7 +222,6 @@ public class HomePage extends NavigationPage {
 	// }
 
 	public void chooseFlexibleDates() {
-		// js.executeScript("window.scrollBy(0, 200)");
 		waiting(2000);
 		click(FlexibleDatesBtn);
 	}
