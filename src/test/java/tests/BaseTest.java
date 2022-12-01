@@ -15,7 +15,7 @@ public class BaseTest {
 	@BeforeClass
 	public void setup() {
 		WebDriverManager.chromedriver().setup();
-		//System.setProperty("webdriver.chrome.driver", "C:\\automation\\drivers\\chromedriver.exe");
+
 		driver = new ChromeDriver();
 
 		driver.manage().window().maximize();
@@ -31,15 +31,15 @@ public class BaseTest {
 	@BeforeClass
 	public void setupLogin() {
 		LoginPage lp = new LoginPage(driver);
-		lp.clickOnSignin();	
+
+		lp.clickOnSignin();
 		lp.loginPageMain("yairtveria@gmail.com", "Aa258963");
-		lp.popUp();
-		lp.clickLetsGo();		
+
 	}
 
 	@AfterClass
 	public void tearDown() {
-		driver.quit();
+		//driver.quit();
 	}
 
 }
